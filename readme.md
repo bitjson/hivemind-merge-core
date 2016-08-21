@@ -77,7 +77,21 @@ Push the merge branch to your personal repo, and [open the pull request](https:/
 git push origin HEAD
 ```
 
-In the description of your pull request, please summarize any issues you came across in your merge and include a link to the equivalent pull request in the [Bitcoin Core](https://github.com/bitcoin/bitcoin) repo.
+In the description of your pull request, please summarize any issues you came across in your merge and include a link to the equivalent pull request in the [Bitcoin Core](https://github.com/bitcoin/bitcoin) repo. To make reviewing easier, pull requests should include only a single merge – please [create a new branch](#start-the-next-merge) to start another merge.
+
+### Reviewing Pull Requests
+
+Since commits to Bitcoin Core have already gone through extensive review (and been subject to the "live testing" of the larger Bitcoin network), we can be a bit more confident with this code than with new code written specifically for Bitcoin Hivemind. This potential for complacency can be a serious threat – it's important that every pull request receives the scruitiny of the normal review process (line-by-line visual review, concept discussion, testing the build, and running the tests).
+
+Large Git merges between diverging codebases can get very messy. Even with the normal review process, merges can sometimes inadvertently (or maliciously) introduce hard to detect bugs or vulnerabilities, which may not be immediately obvious in many Git tools.
+
+One strong option for reviewing these large pull requests is to reproduce the merge in a separate tree, and compare it with the pull request. This method can help to inspect changes made by the merge.
+
+To do this, checkout the branch from the pull request in a local [Bitcoin Hivemind](https://github.com/bitcoin-hivemind/hivemind) repo. Then in this repo, recreate the merge as described in [Start the Next Merge](#start-the-next-merge). To compare the resulting two directories, consider using Git's `diff` command:
+
+```sh
+git diff --no-index dir1/ dir2/
+```
 
 ## Things to Understand
 
