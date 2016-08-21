@@ -28,12 +28,19 @@ You can see the "Todo list" of merges that still need to be completed in the gen
 
 ### Start the Next Merge
 
-To start the next merge, run the `next-merge` script:
+Before starting, check [Bitcoin Hivemind's pull requests](https://github.com/bitjson/hivemind/pulls) to see which commits have already been merged and are waiting to be accepted. You can also contribute by reviewing these pull requests.
+
+To start a new merge, choose a Bitcoin Core merge commit from `merges-remaining.txt` which is not already the subject of a [pull request](https://github.com/bitcoin-hivemind/hivemind/pulls), and pass it to `next-merge.sh`.
 ```sh
-./next-merge.sh
+./next-merge.sh COMMIT_ID
 ```
 
 This script will fetch any recent updates to both repos, create a new branch, and start the merge.
+
+If there are no active pull requests, you can omit the commit id to choose the next commit in `merges-remaining.txt`:
+```sh
+./next-merge.sh
+```
 
 ### Fix Merge Conflicts
 
