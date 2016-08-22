@@ -56,7 +56,7 @@ Before committing the merge, be sure the documentation remains correct. Please f
 
 ### Commit the Merge
 
-When you're finished merging and resolving conflicts, commit your changes:
+When you're finished merging and resolving conflicts, commit and [GPG sign](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) your changes:
 ```sh
 cd hivemind
 git commit
